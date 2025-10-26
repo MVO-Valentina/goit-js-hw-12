@@ -7,12 +7,135 @@
 /* Common styles */
 @import url('./reset.css');
 @import url('./base.css');
-@import url('./container.css');
-@import url('./animations.css');
 
-/* Sections style */
-@import url('./header.css');
-@import url('./vite-promo.css');
-@import url('./badges.css');
-@import url('./back-link.css');
-@import url('./footer.css');
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #ccc;
+  border-bottom-color: #ff3d00;
+  border-radius: 50%;
+  display: inline-block;
+  animation: rotation 1s linear infinite;
+}
+
+.is-hidden {
+  display: none;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #fff;
+  color: #222;
+  padding: 40px 20px;
+}
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Form */
+.form {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.search-label input {
+  width: 360px;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.02);
+}
+.btn {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  background: #4b7cff;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* Loader (css-loader style spinner) */
+.loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 6px solid #eee;
+  border-top-color: #4b7cff;
+  margin: 0 auto 18px;
+  animation: rotation 1s linear infinite;
+}
+.is-hidden {
+  display: none;
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Gallery */
+.gallery {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  padding: 0;
+}
+.gallery-item {
+  border: 1px solid #e0e0e0;
+  padding: 0;
+  background: #fff;
+}
+.gallery-item a {
+  display: block;
+}
+.gallery-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Info bar */
+.info {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-top: 1px solid #e6e6e6;
+  font-size: 13px;
+}
+.info li {
+  width: 25%;
+  text-align: center;
+  list-style: none;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+  .search-label input {
+    width: 220px;
+  }
+}
